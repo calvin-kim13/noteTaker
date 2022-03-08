@@ -3,11 +3,11 @@ const fs = require("fs");
 const db = require("../../db/db.json");
 const { v1: uuidv1, v4: uuidv4 } = require("uuid");
 
-router.get("/notes/", (req, res) => {
-  res.json(db);
+router.get("/notes", (req, res) => {
+  return res.json(db);
 });
 
-router.post("/notes/", (req, res) => {
+router.post("/notes", (req, res) => {
   const { title, text } = req.body;
   if (title && text) {
     const newNote = { title, text, noteId: uuidv1() };
@@ -20,8 +20,6 @@ router.post("/notes/", (req, res) => {
   }
 });
 
-router.delete("/notes/:id", (req, res) => {
-  console.log(req.body);
-});
+router.delete("/notes/:id", (req, res) => {});
 
 module.exports = router;
