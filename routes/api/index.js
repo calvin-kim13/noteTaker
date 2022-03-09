@@ -4,7 +4,7 @@ const db = require("../../db/db.json");
 const { v1: uuidv1, v4: uuidv4 } = require("uuid");
 
 router.get("/notes", (req, res) => {
-  return res.json(db);
+  res.json(db);
 });
 
 router.post("/notes", (req, res) => {
